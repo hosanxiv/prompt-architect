@@ -1,0 +1,19 @@
+{
+  "name": "prompt-architect",
+  "version": "1.0.0",
+  "description": "Build high-quality, structured prompts using the 10-block framework from Anthropic's 'Prompting 101' workshop. Interview-style: asks 4 targeted questions, picks a task-type template, and produces a production-grade prompt with annotations and a test plan.",
+  "author": {
+    "name": "Hosan / The AI Burrow",
+    "url": "https://theaiburrow.xyz/"
+  },
+  "homepage": "https://github.com/YOUR_USERNAME/prompt-architect",
+  "repository": "https://github.com/YOUR_USERNAME/prompt-architect",
+  "license": "MIT",
+  "keywords": [
+    "prompt-engineering",
+    "prompting",
+    "claude",
+    "skill-builder",
+    "anthropic"
+  ]
+}

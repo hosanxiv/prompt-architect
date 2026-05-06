@@ -1,0 +1,46 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.settings/
+
+# Logs / scratch
+*.log
+.scratch/
+scratch/
+notes.md
+TODO.md
+draft-*.md
+
+# Python (in case templates grow scripts)
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# Node
+node_modules/
+package-lock.json
