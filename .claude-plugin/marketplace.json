@@ -1,0 +1,34 @@
+{
+  "name": "the-ai-burrow",
+  "owner": {
+    "name": "Hosan Swee / The AI Burrow",
+    "email": "hello@theaiburrow.xyz"
+  },
+  "metadata": {
+    "description": "Open-source Claude plugins from The AI Burrow. Built from production work — what actually holds up.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "prompt-architect",
+      "source": "./plugins/prompt-architect",
+      "description": "Build production-grade prompts using the 10-block framework from Anthropic's 'Prompting 101' workshop. Interview-style: 4 questions, then a structured prompt with annotations and a test plan.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Hosan Swee / The AI Burrow",
+        "email": "hello@theaiburrow.xyz"
+      },
+      "homepage": "https://github.com/subsub19444/prompt-architect",
+      "repository": "https://github.com/subsub19444/prompt-architect",
+      "license": "MIT",
+      "category": "productivity",
+      "keywords": [
+        "prompt-engineering",
+        "prompting",
+        "claude",
+        "skill-builder",
+        "anthropic"
+      ]
+    }
+  ]
+}

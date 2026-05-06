@@ -61,58 +61,67 @@ Full detail with examples in [`references/framework.md`](references/framework.md
 
 ## Install
 
-This is packaged as a **Claude plugin** — works in both Claude Cowork (desktop app) and Claude Code (CLI). The plugin format follows Anthropic's `.claude-plugin/plugin.json` standard, so the skill registers in the slash menu (you'll see it when you type `/`).
+This repo is a **Claude plugin marketplace** — it follows Anthropic's `.claude-plugin/marketplace.json` spec. Install via the built-in `/plugin` slash commands in either Claude Code or Cowork.
 
-### Claude Cowork (desktop app)
+### Two-command install (works for both Claude Code and Cowork)
 
-In a Cowork chat, ask:
-
-> install the prompt-architect plugin from https://github.com/subsub19444/prompt-architect
-
-Cowork's plugin system fetches the repo, validates the manifest, and registers the skill. After restart, type `/` in the message box and `prompt-architect` will appear in the dropdown.
-
-### Claude Code (CLI)
-
-Skills inside a plugin work in Claude Code too:
-
-```bash
-mkdir -p ~/.claude/plugins
-git clone https://github.com/subsub19444/prompt-architect.git ~/.claude/plugins/prompt-architect
+```
+/plugin marketplace add subsub19444/prompt-architect
+/plugin install prompt-architect@the-ai-burrow
 ```
 
-Restart your `claude` session. Type `/prompt-architect`. Done.
+Run those in your Claude chat (Cowork) or your `claude` session (CLI). Restart and type `/prompt-architect` — it'll show up in the slash dropdown.
 
-### Manual / no Git
+The first command registers this repo as a marketplace called `the-ai-burrow`. The second installs the `prompt-architect` plugin from it. Marketplace name and plugin name are separate on purpose — future plugins from The AI Burrow will live in the same marketplace.
 
-1. Download the repo ZIP.
-2. Unzip and rename the folder to `prompt-architect` (drop any `-main` suffix).
-3. Move it into `~/.claude/plugins/` (Cowork) or `~/.claude/plugins/` (Code) — both read from the same path.
-4. Restart Claude.
+### CLI shortcut
+
+If you're in Terminal (Claude Code only):
+
+```bash
+claude plugin marketplace add subsub19444/prompt-architect
+claude plugin install prompt-architect@the-ai-burrow
+```
+
+### Updating later
+
+```
+/plugin marketplace update the-ai-burrow
+```
+
+Pulls latest changes from this repo. Existing installs auto-pick up new versions on next launch.
 
 ### Verify it's installed
 
-Type `/` in your Claude chat. `prompt-architect` should appear in the dropdown. If not:
+In your Claude chat, type `/`. `prompt-architect` should appear in the dropdown.
 
-- Confirm the folder is at `~/.claude/plugins/prompt-architect/` (note: **plugins**, not skills).
-- Confirm `.claude-plugin/plugin.json` exists at the top of that folder.
-- Confirm `skills/prompt-architect/SKILL.md` exists.
+If it doesn't:
 - Restart Claude fully (Cmd+Q on macOS, not just window-close).
+- Run `/plugin marketplace list` — you should see `the-ai-burrow`.
+- Run `/plugin list` — you should see `prompt-architect`.
+- If either is missing, the marketplace add likely failed silently. Re-run the commands and check for error messages.
 
-## Plugin structure
+## Repo structure
 
 ```
-prompt-architect/                 ← repo root
+prompt-architect/                       ← repo root = MARKETPLACE
 ├── .claude-plugin/
-│   └── plugin.json               ← plugin manifest (name, version, author)
+│   └── marketplace.json                ← marketplace catalog (lists plugins)
+├── plugins/
+│   └── prompt-architect/               ← THE PLUGIN
+│       ├── .claude-plugin/
+│       │   └── plugin.json             ← plugin manifest
+│       └── skills/
+│           └── prompt-architect/       ← skill name = slash command
+│               ├── SKILL.md            ← skill instructions
+│               ├── references/         ← deep-dive docs (loaded on demand)
+│               ├── templates/          ← task-type templates
+│               └── examples/           ← worked before/after
 ├── README.md
-├── LICENSE
 ├── INSTALL.md
-└── skills/
-    └── prompt-architect/         ← skill folder, name = slash command
-        ├── SKILL.md              ← skill instructions
-        ├── references/           ← deep-dive docs (loaded on demand)
-        ├── templates/            ← task-type templates
-        └── examples/             ← worked before/after
+├── LICENSE
+├── CHANGELOG.md
+└── .gitignore
 ```
 
 ## Roadmap
