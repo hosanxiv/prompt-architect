@@ -4,6 +4,19 @@ All notable changes to this project are documented here.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [1.0.1] — 2026-05-06
+
+### Fixed
+
+- Restructured the repo as a proper **plugin marketplace** (`.claude-plugin/marketplace.json`) so it actually installs in Claude Cowork. The v1.0.0 layout was a single-plugin folder, which Cowork rejected with `no manifest found at .claude-plugin/marketplace.json`. The new structure follows Anthropic's marketplace spec:
+  - `.claude-plugin/marketplace.json` at repo root (the marketplace catalog).
+  - `plugins/prompt-architect/` (the plugin folder) containing `.claude-plugin/plugin.json` and the `skills/` tree.
+- Install path is now: **Cowork → Customize → "+" → Add marketplace → paste the GitHub URL**. Or in Claude Code: `claude plugin marketplace add subsub19444/prompt-architect && claude plugin install prompt-architect@the-ai-burrow`.
+
+### Changed
+
+- README and INSTALL.md rewritten with step-by-step UI walkthrough for Cowork users (the previous version assumed a CLI flow that didn't match how most users install).
+
 ## [1.0.0] — 2026-05-06
 
 ### Added

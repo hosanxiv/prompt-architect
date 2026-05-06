@@ -61,66 +61,84 @@ Full detail with examples in [`references/framework.md`](references/framework.md
 
 ## Install
 
-This repo is a **Claude plugin marketplace** — it follows Anthropic's `.claude-plugin/marketplace.json` spec. Install via the built-in `/plugin` slash commands in either Claude Code or Cowork.
+Two install paths. **Most people want Path A** (Cowork desktop app). Pick the one that matches what you use.
 
-### Two-command install (works for both Claude Code and Cowork)
+---
 
-```
-/plugin marketplace add subsub19444/prompt-architect
-/plugin install prompt-architect@the-ai-burrow
-```
+### Path A — Claude Cowork (desktop app) · recommended
 
-Run those in your Claude chat (Cowork) or your `claude` session (CLI). Restart and type `/prompt-architect` — it'll show up in the slash dropdown.
+No Terminal needed. Click-only.
 
-The first command registers this repo as a marketplace called `the-ai-burrow`. The second installs the `prompt-architect` plugin from it. Marketplace name and plugin name are separate on purpose — future plugins from The AI Burrow will live in the same marketplace.
+1. Open the **Claude desktop app** and switch to the **Cowork** tab.
+2. In the left sidebar, click **Customize**.
+3. Under **Personal plugins**, click the **"+"** button.
+4. Choose **Create plugin → Add marketplace**.
+5. In the URL field, paste:
+   ```
+   https://github.com/subsub19444/prompt-architect
+   ```
+6. Click **Sync**. Cowork fetches the marketplace.
+7. Once it loads, you'll see **the-ai-burrow** marketplace in your list. Click into it and install the **prompt-architect** plugin (one-click).
+8. Restart Cowork (quit fully — Cmd+Q on Mac — then reopen).
 
-### CLI shortcut
+**To use it:** start a new chat, type `/` in the message box, and pick **prompt-architect** from the dropdown. Or just ask in plain English: *"build me a prompt for X"* — the skill auto-triggers.
 
-If you're in Terminal (Claude Code only):
+---
+
+### Path B — Claude Code (CLI) · for Terminal users
+
+Two commands:
 
 ```bash
 claude plugin marketplace add subsub19444/prompt-architect
 claude plugin install prompt-architect@the-ai-burrow
 ```
 
+Restart your `claude` session. Type `/prompt-architect` — appears in the slash dropdown.
+
+---
+
 ### Updating later
 
-```
-/plugin marketplace update the-ai-burrow
-```
+When the plugin gets new versions, refresh:
 
-Pulls latest changes from this repo. Existing installs auto-pick up new versions on next launch.
+- **Cowork:** Customize → Personal plugins → click **the-ai-burrow** → click **Update** (or it auto-updates on launch).
+- **Claude Code:** `claude plugin marketplace update the-ai-burrow`
 
-### Verify it's installed
+### Uninstalling
 
-In your Claude chat, type `/`. `prompt-architect` should appear in the dropdown.
+- **Cowork:** Customize → Personal plugins → click **prompt-architect** → **Remove**.
+- **Claude Code:** `claude plugin uninstall prompt-architect@the-ai-burrow`
 
-If it doesn't:
-- Restart Claude fully (Cmd+Q on macOS, not just window-close).
-- Run `/plugin marketplace list` — you should see `the-ai-burrow`.
-- Run `/plugin list` — you should see `prompt-architect`.
-- If either is missing, the marketplace add likely failed silently. Re-run the commands and check for error messages.
+### Troubleshooting
+
+| Symptom | Fix |
+|---|---|
+| `Failed to add marketplace` | Make sure you used the full URL `https://github.com/subsub19444/prompt-architect`. Cowork doesn't accept local file paths in this dialog. |
+| `This repository isn't a marketplace` | The repo's main branch is missing `.claude-plugin/marketplace.json`. Refresh the page and try again — if it persists, it's a repo issue (open an issue). |
+| Plugin installs but `/prompt-architect` doesn't show in slash menu | Quit Claude fully (Cmd+Q on macOS, NOT just window-close) and reopen. |
+| Two `/prompt-architect` entries in Claude Code | You also have a stray standalone install at `~/.claude/skills/prompt-architect/`. Delete that folder; the plugin install is the one to keep. |
 
 ## Repo structure
 
 ```
-prompt-architect/                       ← repo root = MARKETPLACE
+prompt-architect/                       ← this repo = MARKETPLACE
 ├── .claude-plugin/
-│   └── marketplace.json                ← marketplace catalog (lists plugins)
+│   └── marketplace.json                ← marketplace catalog
 ├── plugins/
 │   └── prompt-architect/               ← THE PLUGIN
 │       ├── .claude-plugin/
 │       │   └── plugin.json             ← plugin manifest
 │       └── skills/
-│           └── prompt-architect/       ← skill name = slash command
+│           └── prompt-architect/       ← skill name
 │               ├── SKILL.md            ← skill instructions
-│               ├── references/         ← deep-dive docs (loaded on demand)
+│               ├── references/         ← deep-dive docs
 │               ├── templates/          ← task-type templates
 │               └── examples/           ← worked before/after
 ├── README.md
 ├── INSTALL.md
-├── LICENSE
 ├── CHANGELOG.md
+├── LICENSE
 └── .gitignore
 ```
 
