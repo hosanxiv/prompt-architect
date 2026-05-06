@@ -9,7 +9,7 @@ This is a Claude plugin (with a `.claude-plugin/plugin.json` manifest). It regis
 In a Cowork chat, ask:
 
 ```
-install the prompt-architect plugin from https://github.com/YOUR_USERNAME/prompt-architect
+install the prompt-architect plugin from https://github.com/subsub19444/prompt-architect
 ```
 
 Cowork's plugin tooling will fetch the repo, validate the manifest, and register it. After a restart you should see `prompt-architect` in the slash dropdown when you type `/`.
@@ -20,7 +20,7 @@ Cowork's plugin tooling will fetch the repo, validate the manifest, and register
 
 ```bash
 mkdir -p ~/.claude/plugins
-git clone https://github.com/YOUR_USERNAME/prompt-architect.git ~/.claude/plugins/prompt-architect
+git clone https://github.com/subsub19444/prompt-architect.git ~/.claude/plugins/prompt-architect
 ```
 
 Restart your `claude` session. Type `/prompt-architect`.

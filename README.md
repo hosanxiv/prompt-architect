@@ -67,7 +67,7 @@ This is packaged as a **Claude plugin** — works in both Claude Cowork (desktop
 
 In a Cowork chat, ask:
 
-> install the prompt-architect plugin from https://github.com/YOUR_USERNAME/prompt-architect
+> install the prompt-architect plugin from https://github.com/subsub19444/prompt-architect
 
 Cowork's plugin system fetches the repo, validates the manifest, and registers the skill. After restart, type `/` in the message box and `prompt-architect` will appear in the dropdown.
 
@@ -77,7 +77,7 @@ Skills inside a plugin work in Claude Code too:
 
 ```bash
 mkdir -p ~/.claude/plugins
-git clone https://github.com/YOUR_USERNAME/prompt-architect.git ~/.claude/plugins/prompt-architect
+git clone https://github.com/subsub19444/prompt-architect.git ~/.claude/plugins/prompt-architect
 ```
 
 Restart your `claude` session. Type `/prompt-architect`. Done.
