@@ -220,9 +220,9 @@ Style: short, evidence-based, no fluff. Match the tone of the existing files.
 ## Credits
 
 **Author / maintainer**
-**Hosan** — [The AI Burrow](https://theaiburrow.xyz/) · [LinkedIn](https://www.linkedin.com/in/hosanswee/)
+**Hosan Swee** — Founder, [The AI Burrow](https://theaiburrow.xyz/) · [LinkedIn](https://www.linkedin.com/in/hosanswee/)
 
-The AI Burrow is a Telegram-led AI education brand running the *openclaw* workshop series. This skill is one of the open-source artifacts that comes out of that work.
+The AI Burrow is an applied AI collective based in Singapore — consultancy, workshop studio, and builder community. We help teams move past the hype: documenting what actually works in production, what breaks, and what to do differently. This skill is one of the open-source artifacts that comes out of that work.
 
 **Source material**
 Workshop content adapted from **Hannah Moran** and **Christian Ryan**, Applied AI team at Anthropic — ["Prompting 101", Code w/ Claude, May 2025](https://www.youtube.com/watch?v=ysPbXH0LpIE).
