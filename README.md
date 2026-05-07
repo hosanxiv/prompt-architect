@@ -67,21 +67,52 @@ Two install paths. **Most people want Path A** (Cowork desktop app). Pick the on
 
 ### Path A — Claude Cowork (desktop app) · recommended
 
-No Terminal needed. Click-only.
+Click-only. No Terminal. **All steps stay in the same Plugins panel** — you don't need to bounce between menus.
 
-1. Open the **Claude desktop app** and switch to the **Cowork** tab.
-2. In the left sidebar, click **Customize**.
-3. Under **Personal plugins**, click the **"+"** button.
-4. Choose **Create plugin → Add marketplace**.
-5. In the URL field, paste:
+#### Step-by-step
+
+1. **Open the Claude desktop app** and switch to the **Cowork** tab.
+
+2. **Get to Customize.** Two ways depending on your version:
+   - **If you see "Customize" in the left sidebar:** click it.
+   - **If you don't:** click **Settings → Connectors** — you'll see a message *"Connectors have moved to Customize."* Click the underlined **Customize**.
+
+3. **Find "Personal plugins" in the left column.** Click the small **"+"** button next to it.
+
+4. **A menu pops up.** Click **Browse plugins**. (This opens the Plugins directory, where everything else happens.)
+
+5. **In the Plugins directory, click the "Personal" tab** at the top — next to "Anthropic & Partners".
+
+6. **Scroll to the "Local uploads" section.** Click the **"+"** button next to the "Local uploads" header. This opens the **Add marketplace** dialog.
+
+7. **Paste this URL** into the dialog:
    ```
    https://github.com/subsub19444/prompt-architect
    ```
-6. Click **Sync**. Cowork fetches the marketplace.
-7. Once it loads, you'll see **the-ai-burrow** marketplace in your list. Click into it and install the **prompt-architect** plugin (one-click).
-8. Restart Cowork (quit fully — Cmd+Q on Mac — then reopen).
 
-**To use it:** start a new chat, type `/` in the message box, and pick **prompt-architect** from the dropdown. Or just ask in plain English: *"build me a prompt for X"* — the skill auto-triggers.
+8. **Click Sync.** The dialog closes. The marketplace is now registered.
+
+   ✓ Cowork pulls the marketplace catalog. The dialog closing silently is the success signal.
+
+9. **Back in the Local uploads section, you'll now see `prompt-architect` listed with a "+" button next to it.** Click that **"+"** to install the plugin.
+
+   ⚠️ **This step is critical** — Sync (step 8) only registers the catalog. The plugin isn't installed until you click this "+". Most install failures stop here.
+
+10. **Quit Claude fully.** Press **Cmd+Q** on Mac. Closing the window is not enough — Claude keeps running in the background and won't refresh the slash menu. Reopen Claude.
+
+11. **Verify.** Open a new chat, type `/` in the message box. **`prompt-architect`** should appear in the dropdown.
+
+To use it, either click `prompt-architect` from the dropdown, or just type a request like *"build me a prompt for X"* — the skill auto-triggers.
+
+#### What you should see at each step
+
+| After step | What's visible |
+|---|---|
+| 8 (clicked Sync) | Add marketplace dialog closes. Local uploads now shows `prompt-architect` as an available plugin. |
+| 9 (clicked + on prompt-architect) | The "+" disappears or changes to a checkmark — the plugin is now installed. |
+| 10–11 (Cmd+Q, reopen, `/`) | `prompt-architect` appears in your slash dropdown AND under "Personal plugins" in the Customize sidebar. |
+
+If any step doesn't match — check the troubleshooting table below.
 
 ---
 
@@ -112,12 +143,14 @@ When the plugin gets new versions, refresh:
 
 ### Troubleshooting
 
-| Symptom | Fix |
-|---|---|
-| `Failed to add marketplace` | Make sure you used the full URL `https://github.com/subsub19444/prompt-architect`. Cowork doesn't accept local file paths in this dialog. |
-| `This repository isn't a marketplace` | The repo's main branch is missing `.claude-plugin/marketplace.json`. Refresh the page and try again — if it persists, it's a repo issue (open an issue). |
-| Plugin installs but `/prompt-architect` doesn't show in slash menu | Quit Claude fully (Cmd+Q on macOS, NOT just window-close) and reopen. |
-| Two `/prompt-architect` entries in Claude Code | You also have a stray standalone install at `~/.claude/skills/prompt-architect/`. Delete that folder; the plugin install is the one to keep. |
+| Symptom | What's wrong | Fix |
+|---|---|---|
+| **Synced, dialog closed, but nothing in my Personal plugins list** | You stopped at Stage 1. Sync only adds the marketplace — you still need to install the plugin. | Go to **Customize → Plugins (left sidebar) → Personal tab → Local uploads**. Click the **"+"** next to `prompt-architect`. Then quit Claude (Cmd+Q) and reopen. |
+| **Clicked "+" but `/prompt-architect` doesn't show when I type `/`** | The slash menu didn't refresh. | **Quit Claude fully** — Cmd+Q on Mac. Closing the window is not enough; the app keeps running in the background. Then reopen. |
+| **"Failed to add marketplace" when clicking Sync** | URL or path issue. | Use the full URL `https://github.com/subsub19444/prompt-architect`. Cowork doesn't accept local file paths in this dialog. |
+| **"This repository isn't a marketplace"** | Cowork couldn't find `.claude-plugin/marketplace.json` in the repo. | Refresh the page and try again. If it persists, [open an issue](https://github.com/subsub19444/prompt-architect/issues). |
+| **Can't find "Customize" in the left sidebar** | Cowork moved Customize behind Settings. | Open **Settings → Connectors**. You'll see *"Connectors have moved to Customize."* — click the underlined Customize. |
+| **Two `/prompt-architect` entries in Claude Code (CLI)** | Duplicate from a stray manual install. | Delete `~/.claude/skills/prompt-architect/`. The plugin install (via `claude plugin install`) is the one to keep. |
 
 ## Repo structure
 
