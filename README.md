@@ -67,7 +67,7 @@ Two install paths. **Most people want Path A** (Cowork desktop app). Pick the on
 
 ### Path A — Claude Cowork (desktop app) · recommended
 
-Click-only. No Terminal. **All steps stay in the same Plugins panel** — you don't need to bounce between menus.
+Click-only. No Terminal. **Two clicks worth of attention:** Sync (step 7) registers the marketplace, then a separate "+" click (step 8) actually installs the plugin. Both are needed — Sync alone won't install.
 
 #### Step-by-step
 
@@ -77,40 +77,36 @@ Click-only. No Terminal. **All steps stay in the same Plugins panel** — you do
    - **If you see "Customize" in the left sidebar:** click it.
    - **If you don't:** click **Settings → Connectors** — you'll see a message *"Connectors have moved to Customize."* Click the underlined **Customize**.
 
-3. **Find "Personal plugins" in the left column.** Click the small **"+"** button next to it.
+3. **In Customize, find "Personal plugins" in the left column.** Click the small **"+"** button next to it.
 
-4. **A menu pops up.** Click **Browse plugins**. (This opens the Plugins directory, where everything else happens.)
+4. **A menu pops up.** Hover over **Create plugin**, then click **Add marketplace** in the submenu.
 
-5. **In the Plugins directory, click the "Personal" tab** at the top — next to "Anthropic & Partners".
+5. **A dialog opens** with a URL field labeled *"A GitHub `owner/repo` or a git repository URL."*
 
-6. **Scroll to the "Local uploads" section.** Click the **"+"** button next to the "Local uploads" header. This opens the **Add marketplace** dialog.
-
-7. **Paste this URL** into the dialog:
+6. **Paste this URL:**
    ```
    https://github.com/subsub19444/prompt-architect
    ```
 
-8. **Click Sync.** The dialog closes. The marketplace is now registered.
+7. **Click Sync.** The dialog closes silently. The marketplace catalog is now registered with Cowork — but the plugin isn't installed yet.
 
-   ✓ Cowork pulls the marketplace catalog. The dialog closing silently is the success signal.
+8. **Now find and install the plugin.** Click **Plugins** in the Customize left sidebar (you'll see Skills / Connectors / Plugins as three options). At the top, click the **Personal** tab. Scroll until you see **prompt-architect** listed with a small **"+"** button next to it. Click that **"+"** to install.
 
-9. **Back in the Local uploads section, you'll now see `prompt-architect` listed with a "+" button next to it.** Click that **"+"** to install the plugin.
+   ⚠️ **This is the step everyone misses.** Sync just registers the catalog. The plugin isn't active until you click this "+". If the plugin entry isn't visible after Sync, refresh the panel or restart Claude and check again.
 
-   ⚠️ **This step is critical** — Sync (step 8) only registers the catalog. The plugin isn't installed until you click this "+". Most install failures stop here.
+9. **Quit Claude fully.** Press **Cmd+Q** on Mac. Closing the window is not enough — Claude keeps running in the background and won't refresh the slash menu. Reopen Claude.
 
-10. **Quit Claude fully.** Press **Cmd+Q** on Mac. Closing the window is not enough — Claude keeps running in the background and won't refresh the slash menu. Reopen Claude.
+10. **Verify.** Open a new chat, type `/` in the message box. **`prompt-architect`** should appear in the dropdown.
 
-11. **Verify.** Open a new chat, type `/` in the message box. **`prompt-architect`** should appear in the dropdown.
-
-To use it, either click `prompt-architect` from the dropdown, or just type a request like *"build me a prompt for X"* — the skill auto-triggers.
+To use it, either click `prompt-architect` from the dropdown, or just type a request like *"build me a prompt for X"* — the skill auto-triggers based on its description matching what you're asking.
 
 #### What you should see at each step
 
 | After step | What's visible |
 |---|---|
-| 8 (clicked Sync) | Add marketplace dialog closes. Local uploads now shows `prompt-architect` as an available plugin. |
-| 9 (clicked + on prompt-architect) | The "+" disappears or changes to a checkmark — the plugin is now installed. |
-| 10–11 (Cmd+Q, reopen, `/`) | `prompt-architect` appears in your slash dropdown AND under "Personal plugins" in the Customize sidebar. |
+| 7 (clicked Sync) | Dialog closes silently. **Nothing else changes immediately** — this is correct. |
+| 8 (clicked + on prompt-architect) | The "+" disappears or changes to a checkmark — plugin is installed. |
+| 9–10 (Cmd+Q, reopen, `/`) | `prompt-architect` appears in your slash dropdown AND under "Personal plugins" in the Customize sidebar. |
 
 If any step doesn't match — check the troubleshooting table below.
 
