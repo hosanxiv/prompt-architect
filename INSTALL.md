@@ -49,7 +49,7 @@ Two key clicks: **Sync** registers the marketplace, then a separate **"+"** clic
 
 6. **Paste this URL:**
    ```
-   https://github.com/subsub19444/prompt-architect
+   https://github.com/hosanxiv/prompt-architect
    ```
 
 7. **Click Sync.**
@@ -58,7 +58,7 @@ Two key clicks: **Sync** registers the marketplace, then a separate **"+"** clic
 
    ❌ *"Failed to add marketplace"* → check the URL is exact (no trailing spaces). Local file paths don't work in this dialog.
 
-   ❌ *"This repository isn't a marketplace"* → the GitHub repo is missing `.claude-plugin/marketplace.json`. Refresh and try again. If it persists, [open an issue](https://github.com/subsub19444/prompt-architect/issues).
+   ❌ *"This repository isn't a marketplace"* → the GitHub repo is missing `.claude-plugin/marketplace.json`. Refresh and try again. If it persists, [open an issue](https://github.com/hosanxiv/prompt-architect/issues).
 
 #### 3 — Install the plugin from the marketplace
 
@@ -118,7 +118,7 @@ For users who prefer Terminal. Faster install, identical functionality.
 In your Terminal:
 
 ```bash
-claude plugin marketplace add subsub19444/prompt-architect
+claude plugin marketplace add hosanxiv/prompt-architect
 claude plugin install prompt-architect@the-ai-burrow
 ```
 
@@ -126,7 +126,7 @@ That's it. Two commands. Restart your `claude` session and type `/prompt-archite
 
 ### What the commands do
 
-- `marketplace add` registers `subsub19444/prompt-architect` (a GitHub repo) as a plugin marketplace called **the-ai-burrow**.
+- `marketplace add` registers `hosanxiv/prompt-architect` (a GitHub repo) as a plugin marketplace called **the-ai-burrow**.
 - `install ... @the-ai-burrow` installs the **prompt-architect** plugin from that marketplace.
 
 ### Verify
@@ -216,14 +216,14 @@ Cowork moved Customize behind Settings in some versions. To get there:
 
 Most common cause: you pasted a local file path instead of a GitHub URL. Cowork's "Add marketplace" dialog only accepts:
 
-- A GitHub `owner/repo` shorthand (e.g. `subsub19444/prompt-architect`)
-- A full Git URL (e.g. `https://github.com/subsub19444/prompt-architect`)
+- A GitHub `owner/repo` shorthand (e.g. `hosanxiv/prompt-architect`)
+- A full Git URL (e.g. `https://github.com/hosanxiv/prompt-architect`)
 
 Use the full GitHub URL. Local file paths are not supported in this dialog.
 
 ### "This repository isn't a marketplace — no manifest found at .claude-plugin/marketplace.json"
 
-The repo you pointed at doesn't have a marketplace catalog file at the right location. If you got this error using the URL `https://github.com/subsub19444/prompt-architect`, the repo might be in a temporary broken state — refresh the dialog and try again. If it persists, [open an issue](https://github.com/subsub19444/prompt-architect/issues).
+The repo you pointed at doesn't have a marketplace catalog file at the right location. If you got this error using the URL `https://github.com/hosanxiv/prompt-architect`, the repo might be in a temporary broken state — refresh the dialog and try again. If it persists, [open an issue](https://github.com/hosanxiv/prompt-architect/issues).
 
 ### Two `/prompt-architect` entries in Claude Code (CLI)
 

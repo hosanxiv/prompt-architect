@@ -11,7 +11,7 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 - Restructured the repo as a proper **plugin marketplace** (`.claude-plugin/marketplace.json`) so it actually installs in Claude Cowork. The v1.0.0 layout was a single-plugin folder, which Cowork rejected with `no manifest found at .claude-plugin/marketplace.json`. The new structure follows Anthropic's marketplace spec:
   - `.claude-plugin/marketplace.json` at repo root (the marketplace catalog).
   - `plugins/prompt-architect/` (the plugin folder) containing `.claude-plugin/plugin.json` and the `skills/` tree.
-- Install path is now: **Cowork → Customize → "+" → Add marketplace → paste the GitHub URL**. Or in Claude Code: `claude plugin marketplace add subsub19444/prompt-architect && claude plugin install prompt-architect@the-ai-burrow`.
+- Install path is now: **Cowork → Customize → "+" → Add marketplace → paste the GitHub URL**. Or in Claude Code: `claude plugin marketplace add hosanxiv/prompt-architect && claude plugin install prompt-architect@the-ai-burrow`.
 
 ### Changed
 
@@ -46,4 +46,4 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 - Compatible with both Claude Cowork (desktop app) and Claude Code (CLI). Cowork registers the slash command via the plugin manifest; Claude Code reads from `~/.claude/plugins/`.
 - Skill is interview-style: triggers ask 4 multiple-choice questions before generating the prompt. In Cowork, questions render as clickable cards; in Claude Code, they render as plain Q&A.
 
-[1.0.0]: https://github.com/subsub19444/prompt-architect/releases/tag/v1.0.0
+[1.0.0]: https://github.com/hosanxiv/prompt-architect/releases/tag/v1.0.0

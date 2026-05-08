@@ -85,7 +85,7 @@ Click-only. No Terminal. **Two clicks worth of attention:** Sync (step 7) regist
 
 6. **Paste this URL:**
    ```
-   https://github.com/subsub19444/prompt-architect
+   https://github.com/hosanxiv/prompt-architect
    ```
 
 7. **Click Sync.** The dialog closes silently. The marketplace catalog is now registered with Cowork — but the plugin isn't installed yet.
@@ -117,7 +117,7 @@ If any step doesn't match — check the troubleshooting table below.
 Two commands:
 
 ```bash
-claude plugin marketplace add subsub19444/prompt-architect
+claude plugin marketplace add hosanxiv/prompt-architect
 claude plugin install prompt-architect@the-ai-burrow
 ```
 
@@ -143,8 +143,8 @@ When the plugin gets new versions, refresh:
 |---|---|---|
 | **Synced, dialog closed, but nothing in my Personal plugins list** | You stopped at Stage 1. Sync only adds the marketplace — you still need to install the plugin. | Go to **Customize → Plugins (left sidebar) → Personal tab → Local uploads**. Click the **"+"** next to `prompt-architect`. Then quit Claude (Cmd+Q) and reopen. |
 | **Clicked "+" but `/prompt-architect` doesn't show when I type `/`** | The slash menu didn't refresh. | **Quit Claude fully** — Cmd+Q on Mac. Closing the window is not enough; the app keeps running in the background. Then reopen. |
-| **"Failed to add marketplace" when clicking Sync** | URL or path issue. | Use the full URL `https://github.com/subsub19444/prompt-architect`. Cowork doesn't accept local file paths in this dialog. |
-| **"This repository isn't a marketplace"** | Cowork couldn't find `.claude-plugin/marketplace.json` in the repo. | Refresh the page and try again. If it persists, [open an issue](https://github.com/subsub19444/prompt-architect/issues). |
+| **"Failed to add marketplace" when clicking Sync** | URL or path issue. | Use the full URL `https://github.com/hosanxiv/prompt-architect`. Cowork doesn't accept local file paths in this dialog. |
+| **"This repository isn't a marketplace"** | Cowork couldn't find `.claude-plugin/marketplace.json` in the repo. | Refresh the page and try again. If it persists, [open an issue](https://github.com/hosanxiv/prompt-architect/issues). |
 | **Can't find "Customize" in the left sidebar** | Cowork moved Customize behind Settings. | Open **Settings → Connectors**. You'll see *"Connectors have moved to Customize."* — click the underlined Customize. |
 | **Two `/prompt-architect` entries in Claude Code (CLI)** | Duplicate from a stray manual install. | Delete `~/.claude/skills/prompt-architect/`. The plugin install (via `claude plugin install`) is the one to keep. |
 
