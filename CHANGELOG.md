@@ -4,6 +4,19 @@ All notable changes to this project are documented here.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [1.0.3] — 2026-05-07
+
+### Fixed
+
+- **Skill now always runs the 4-question interview, every time.** Previously, Claude was skipping the interview on subsequent uses in the same session (it inferred that asking the same questions twice would be redundant). That defeated the skill's whole value — the interview is the product, not friction. SKILL.md now explicitly instructs Claude to always ask, regardless of session history, request detail, or how recently the skill was last used. Only skip if the user explicitly says *"skip the questions"* or *"no interview"*.
+
+  Thanks to a user reporting this from The AI Burrow community channel — the kind of feedback that makes the skill actually work in production.
+
+### Changed
+
+- README and INSTALL.md install instructions rewritten with clearer 3-stage Cowork flow (Sync registers the marketplace, then a separate "+" click installs the plugin, then Cmd+Q restart). The previous docs glossed over the second-click step, which was the #1 reason new users got stuck. Now includes troubleshooting table built from real user feedback.
+- Repo URLs updated after GitHub username change `subsub19444` → `hosanxiv`. Old URLs still work via GitHub's automatic redirect, but in-repo references now point at the canonical new location.
+
 ## [1.0.1] — 2026-05-06
 
 ### Fixed

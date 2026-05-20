@@ -13,7 +13,7 @@
       "name": "prompt-architect",
       "source": "./plugins/prompt-architect",
       "description": "Build production-grade prompts using the 10-block framework from Anthropic's 'Prompting 101' workshop. Interview-style: 4 questions, then a structured prompt with annotations and a test plan.",
-      "version": "1.0.1",
+      "version": "1.0.3",
       "author": {
         "name": "Hosan Swee / The AI Burrow",
         "email": "hello@theaiburrow.xyz"

@@ -33,6 +33,14 @@ Not every prompt needs all 10. A simple ask might use 1, 3, 6, 8. A complex extr
 
 Run interactively. Do not generate a prompt until you have answers to the questions in step 1.
 
+**Always ask the interview questions, every single time the skill triggers.** This includes:
+- First time using the skill in a session — ask.
+- Second, third, Nth time in the same session — still ask.
+- Even if the user's request looks detailed and you think you could infer the answers — still ask.
+- Even if the user used the skill earlier and "you already know their preferences" — still ask, because the next prompt might be for a different task.
+
+Skipping the interview defeats the entire value of the skill. The 4 questions are the product, not friction to be optimized away. Only skip if the user explicitly types something like *"skip the questions"*, *"no interview"*, or *"just generate it"*.
+
 ### Step 1 — Diagnose (use AskUserQuestion)
 
 Ask in **one** AskUserQuestion call (multiple questions in the same tool call):
